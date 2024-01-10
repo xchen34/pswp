@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 16:40:05 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/10 18:34:53 by leochen          ###   ########.fr       */
+/*   Created: 2024/01/10 14:13:15 by leochen           #+#    #+#             */
+/*   Updated: 2024/01/10 18:34:56 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP.H
-# define PUSH_SWAP.H
+#include "push_swap.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
-
-typedef struct	s_stack
+int	main(int argc, char **argv)
 {
-	int	*indexed;
-	int	*original_input;
-	int	*pre_sorted;
-	int	atop; //表示栈顶的位置
-	int	size;  //栈中的总元素数量
-}				t_stack;
+	t_stack	*stack;
 
-
-
-
-#endif
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	if (argc == 1 || !stack)
+		return (1);
+	initialize_stack(stack, argc, argv);
+	if (!stack || check_dup(stack) == 1)
+	{
+		free_stack(stack);
+		error_print();
+	}
+	if (check_sorted(stack) != 1)
+	{
+		pre_sort(stack);
+		indexing(stack);
+		sort(stack);
+	}
+	free_stack(stack);
+	return (0);
+}
