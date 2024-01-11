@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:06:40 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/10 18:34:55 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/11 15:18:15 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 // original_input  33 10 42 67 99 25
 // pre_sorted 		10 25 33 42 67 99
 // indexed			(atop)2 0 3 4 5 1
+// 2 b
+// 0 b   btop
+// 3  a   atop
+// 1  a
+// 4  a     atop是数字3在整个ab的index 也就是2
 void	ra(t_stack *stack, int exec, int print)
 {
 	int	tmp;
@@ -39,10 +44,19 @@ void	rb(t_stack *stack; int exec, int print)
 	int	tmp;
 	int	i;
 
-	if (exec == 1 && stack->atop < stack->size - 1)
+	if (exec == 1 && stack->atop >= 2)
 	{
-		
+		i = stack->atop - 1;
+		tmp = stack->indexed[i];
+		while (i > 0)
+		{
+			stack->indexed[i] = stack->indexed[i - 1];
+			i--;
+		}
+		stack->indexed[i] = tmp;
 	}
+	if (print == 1)
+		write(1, "rb\n", 3);
 }
 
 void	rr(t_stack *stack; int exec, int print)
