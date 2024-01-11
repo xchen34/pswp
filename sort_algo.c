@@ -1,33 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   sort_algo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 16:40:05 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/11 18:46:47 by leochen          ###   ########.fr       */
+/*   Created: 2024/01/03 19:56:12 by leochen           #+#    #+#             */
+/*   Updated: 2024/01/11 18:46:48 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP.H
-# define PUSH_SWAP.H
-
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
-
-typedef struct	s_stack
-{
-	int	*indexed;
-	int	*original_input;
-	int	*pre_sorted;
-	int	atop; //表示栈顶的位置
-	int	size;  //栈中的总元素数量
-}				t_stack;
-
-
-
-
-#endif
