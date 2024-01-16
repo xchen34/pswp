@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 14:41:31 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/12 19:41:35 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/16 14:13:28 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,31 @@ void	sort_partition(t_stack *stack)
 	}
 }
 
+void	move_to_top(t_stack *stack, int n)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack->size && stack->indexed[i] != n)
+		i++;
+	if (i < stack->size / 2)
+	{
+		while (i-- > 0)
+			ra(stack, 1, 1);
+	}
+	else
+	{
+		i = stack->size - i;
+		while (i-- > 0)
+			rra(stack, 1, 1);
+	}
+}
+
 void	sort_big(t_stack *stack)
 {
 	if (check_sorted == 0)
 	{
 		sort_partition(stack);
-
+		move_to_top(stack, 0);
+	}
 }

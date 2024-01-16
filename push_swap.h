@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 16:40:05 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/11 18:46:47 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/16 14:14:13 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ typedef struct	s_stack
 	int	atop; //表示栈顶的位置
 	int	size;  //栈中的总元素数量
 }				t_stack;
-
-
 
 
 #endif

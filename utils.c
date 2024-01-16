@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:51:02 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/11 18:46:50 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/16 14:13:20 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,11 @@ int	atoi2(const char *s)
 	}	
 	return (nb * sign);
 }
+
+int	abs(int	n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
+}
+
