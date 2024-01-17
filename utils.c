@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:51:02 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/16 14:13:20 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/17 19:05:24 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,46 @@ int	abs(int	n)
 		return (-n);
 	return (n);
 }
+int	*str_to_array(char *s)
+{
+	int	*arry;
+	int	i;
+	int	count;
+	char	**tmp;
+	int	k;
 
+	tmp = ft_split(s, ' ');
+	count = 0;
+	i = 0;
+	while (tmp[count] != NULL)
+		count++;
+	arry = (int *)malloc(sizeof(int) * count);
+	if (arry == NULL)
+		return (NULL);
+	while (i < count)
+	{
+		arry[i] = atoi2(tmp[i]);
+		i++;
+	}
+	for (k=0;k<count; k++)
+		printf("str to arry: arry[%d]:%d\n", k, arry[k]);
+	free_tmp(tmp);
+	return (arry);
+}
+
+int	*args_to_array(int argc, char **argv)
+{
+	int	i;
+	int	*arry;
+
+	i = 0;
+	arry = (int *)malloc(sizeof(int) * (argc - 1));
+	if (arry == NULL)
+		return (NULL);
+	while (i < argc - 1)
+	{
+		arry[i] = atoi2(argv[i + 1]);
+		i++;
+	}
+	return (arry);
+}

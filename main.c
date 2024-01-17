@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 14:13:15 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/11 18:46:44 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/17 19:05:31 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*stack;
+	int	i;
 
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (argc == 1 || !stack)
@@ -29,8 +30,13 @@ int	main(int argc, char **argv)
 	{
 		pre_sort(stack);
 		indexing(stack);
-		sort(stack);
+		if (stack->size <= 3)
+			sort_small_3(stack);
+		else
+			sort_big(stack);
 	}
+	for (i = 0; i < stack->size; i++)
+		printf("final indexed[%d]: %d\n", i, stack->indexed[i]);
 	free_stack(stack);
 	return (0);
 }

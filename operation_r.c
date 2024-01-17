@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:06:40 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/11 18:46:45 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/17 19:05:28 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ra(t_stack *stack, int exec, int print)
 	if (print == 1)
 		write(1, "ra\n", 3);
 }
-void	rb(t_stack *stack; int exec, int print)
+void	rb(t_stack *stack, int exec, int print)
 {
 	int	tmp;
 	int	i;
@@ -59,7 +59,7 @@ void	rb(t_stack *stack; int exec, int print)
 		write(1, "rb\n", 3);
 }
 
-void	rr(t_stack *stack; int exec, int print)
+void	rr(t_stack *stack, int exec, int print)
 {
 	if (exec == 1)
 	{

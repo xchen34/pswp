@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 14:41:31 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/16 14:13:28 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/17 19:05:24 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,8 @@ void	sort_small_3(t_stack *stack)
 				else
 					rra(stack, 1, 1);
 			}
-			else if (stack->indexed[stack->atop] < stack->indexed[stack->size - 1])
-			{
-				if (stack->indexed[stack->atop] > stack->indexed[stack->atop + 1])
-					sa(stack, 1, 1);
-			}
+			else
+				sa(stack, 1, 1);
 		}
 	}
 	return ;
@@ -50,6 +47,7 @@ void	sort_small_3(t_stack *stack)
 void	sort_partition(t_stack *stack)
 {
 	int	i;
+	int	k;
 
 	i = 0;
 	while (i < stack->size / 2)
@@ -68,9 +66,11 @@ void	sort_partition(t_stack *stack)
 		i++;
 	}
 	sort_small_3(stack);
+	for (k = 0; k < stack->size; k++)
+		printf("partition indexed[%d]: %d\n", k, stack->indexed[k]);
 	while (i >= 0)
 	{
-		insert_from_b(stack);
+		insert_to_a(stack);
 		i--;
 	}
 }
@@ -97,9 +97,9 @@ void	move_to_top(t_stack *stack, int n)
 
 void	sort_big(t_stack *stack)
 {
-	if (check_sorted == 0)
+	if (check_sorted(stack) == 0)
 	{
 		sort_partition(stack);
-		move_to_top(stack, 0);
+		//move_to_top(stack, 0);
 	}
 }

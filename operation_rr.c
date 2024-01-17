@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:02:18 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/11 18:46:46 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/17 19:05:28 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	rra(t_stack *stack, int exec, int print)
 		stack->indexed[stack->atop] = tmp;
 	}
 	if (print == 1)
-		write(1, "rra\n", 3);
+		write(1, "rra\n", 4);
 }
-void	rrb(t_stack *stack; int exec, int print)
+void	rrb(t_stack *stack, int exec, int print)
 {
 	int	tmp;
 	int	i;
@@ -60,13 +60,13 @@ void	rrb(t_stack *stack; int exec, int print)
 		write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack *stack; int exec, int print)
+void	rrr(t_stack *stack, int exec, int print)
 {
 	if (exec == 1)
 	{
 		rra(stack, 1, 0);
 		rrb(stack, 1, 0);
 	}	
-	if (p == 1)
+	if (print == 1)
 		write(1, "rrr\n", 4);
 }

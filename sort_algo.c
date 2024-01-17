@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:56:12 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/16 14:14:07 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/17 19:05:25 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ void	calc_steps(t_stack *stack, int *steps, int index_a, int index_b)
 	if (index_b >= stack->atop / 2)
 		step_b = stack->atop - 1 - index_b;
 	else
-		steps_b = -(index_b + 1);
-	total_steps = calc_total(step_a, steps_b);
-	if (total_steps < steps[2] && total_steps >= 0 || index_b == stack->atop - 1)
+		step_b = -(index_b + 1);
+	total_steps = calc_total(step_a, step_b);
+	if ((total_steps < steps[2] && total_steps >= 0) || index_b == stack->atop - 1)
 	{
 		steps[0] = step_a;
 		steps[1] = step_b;
@@ -116,6 +116,6 @@ void	insert_to_a(t_stack *stack)
 			break;
 		index_b--;
 	}
-	rotate_command(steps[0], steps[1], stack);
+	rotate_command(stack, steps[0], steps[1]);
 	pa(stack, 1, 1);
 }

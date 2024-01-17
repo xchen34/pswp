@@ -6,9 +6,11 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:33:20 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/15 20:41:41 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/17 19:05:23 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 void	error_print(void)
 {
@@ -18,25 +20,22 @@ void	error_print(void)
 
 int	check_dup(t_stack *stack)
 {
-	int	*tmp;
 	int	i;
 	int	j;
 
 	i = 0;
-	tmp = stack->original_input;
 	while (i < stack->size - 1)
 	{
 		j = i + 1;
 		while (j < stack->size)
 		{
-			if (tmp[i] != tmp[j])
+			if (stack->original_input[i] != stack->original_input[j])
 				j++;
 			else
 				return (1);
 		}
 		i++;
 	}
-	free(tmp);
 	return (0);
 }
 
@@ -55,7 +54,7 @@ int	check_sorted(t_stack *stack)
 	return (1);
 }
 
-int	check_a_soted(t_stack *stack)
+int	check_a_sorted(t_stack *stack)
 {
 	int	i;
 
