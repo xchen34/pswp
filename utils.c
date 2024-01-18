@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:51:02 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/17 19:05:24 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/18 12:55:49 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	*str_to_array(char *s)
 	int	i;
 	int	count;
 	char	**tmp;
-	int	k;
 
 	tmp = ft_split(s, ' ');
 	count = 0;
@@ -68,8 +67,6 @@ int	*str_to_array(char *s)
 		arry[i] = atoi2(tmp[i]);
 		i++;
 	}
-	for (k=0;k<count; k++)
-		printf("str to arry: arry[%d]:%d\n", k, arry[k]);
 	free_tmp(tmp);
 	return (arry);
 }

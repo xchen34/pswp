@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 13:36:19 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/17 19:05:32 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/18 13:20:36 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	**malloc_fail(char **split, int words_written)
 	return (NULL);
 }
 
-static int	count_words(char *s, char c)
+int	count_words(char *s, char c)
 {
 	int	count;
 	int	flag;

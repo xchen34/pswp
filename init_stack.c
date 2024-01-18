@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 21:14:33 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/17 19:05:31 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:44:52 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ void	pre_sort(t_stack *stack)
 		}
 		count--;
 	}
+	//int k;
+//for (k=0;k<stack->size; k++)
+		//printf("pre sorted[%d]:%d\n", k, stack->pre_sorted[k]);
 }
 void indexing(t_stack *stack)
 {
@@ -68,9 +71,8 @@ void indexing(t_stack *stack)
 		i++;
 	}
     // 打印输出部分
-    for (i = 0; i < stack->size; i++) {
-        printf("indexed[%d]: %d\n", i, stack->indexed[i]);
-    }
+    //for (i = 0; i < stack->size; i++) 
+        //printf("indexed[%d]: %d\n", i, stack->indexed[i]);
 }
 
 void	initialize_stack(t_stack *stack, int argc, char **argv)
@@ -79,7 +81,14 @@ void	initialize_stack(t_stack *stack, int argc, char **argv)
 	stack->pre_sorted = put_to_array(argc, argv);
 	stack->indexed = put_to_array(argc, argv);
 	stack->atop = 0;
-	stack->size = argc - 1;
+	if (argc > 2)
+		stack->size = argc - 1;
+	else
+		stack->size = count_words(argv[1], ' ');
+
+	//printf("Size: %d\n", stack->size);
+    //for (int k = 0; k < stack->size; k++) 
+        //printf("Original input[%d]: %d\n", k, stack->original_input[k]);
 }
 
 void	free_stack(t_stack *stack)

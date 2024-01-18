@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 16:40:05 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/17 19:05:26 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/18 19:21:08 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	find_insert_index(t_stack *stack, int index_b);
 void	calc_steps(t_stack *stack, int *steps, int index_a, int index_b);
 int	calc_total(int	a, int b);
 void	rotate_command(t_stack *stack, int a, int b);
+void	rotate_command_single(t_stack *stack, int a, int b);
 void	insert_to_a(t_stack *stack);
 
 /****************************sort********************/
@@ -71,5 +72,6 @@ int	check_sorted(t_stack *stack);
 int	check_a_sorted(t_stack *stack);
 void	free_tmp(char **tmp);
 char	**ft_split(char *s, char c);
+int	count_words(char *s, char c);
 
 #endif

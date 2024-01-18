@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 14:41:31 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/17 19:05:24 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/18 19:20:56 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	sort_small_3(t_stack *stack)
 void	sort_partition(t_stack *stack)
 {
 	int	i;
-	int	k;
+	//int	k;
 
 	i = 0;
 	while (i < stack->size / 2)
@@ -66,8 +66,8 @@ void	sort_partition(t_stack *stack)
 		i++;
 	}
 	sort_small_3(stack);
-	for (k = 0; k < stack->size; k++)
-		printf("partition indexed[%d]: %d\n", k, stack->indexed[k]);
+	//for (k = 0; k < stack->size; k++)
+		//printf("after partition(less than median at top and keep rb until 3 left and sort3)indexed[%d]: %d\n", k, stack->indexed[k]);
 	while (i >= 0)
 	{
 		insert_to_a(stack);
@@ -100,6 +100,6 @@ void	sort_big(t_stack *stack)
 	if (check_sorted(stack) == 0)
 	{
 		sort_partition(stack);
-		//move_to_top(stack, 0);
+		move_to_top(stack, 0);
 	}
 }
