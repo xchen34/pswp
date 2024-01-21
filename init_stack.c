@@ -33,7 +33,8 @@ void	pre_sort(t_stack *stack)
 	while (count > 0)
 	{
 		i = 0;
-		while (i < stack->size - 1)
+//		while (i < stack->size - 1)
+		while (i < count)
 		{
 			if (stack->pre_sorted[i] > stack->pre_sorted[i + 1])
 			{
@@ -41,13 +42,13 @@ void	pre_sort(t_stack *stack)
 				stack->pre_sorted[i] = stack->pre_sorted[i + 1];
 				stack->pre_sorted[i + 1] = tmp;
 			}
-		i++;
+		    i++;
 		}
 		count--;
 	}
-	//int k;
-//for (k=0;k<stack->size; k++)
-		//printf("pre sorted[%d]:%d\n", k, stack->pre_sorted[k]);
+	/*int k;
+for (k=0;k<stack->size; k++)
+    printf("pre sorted[%d]:%d", k, stack->pre_sorted[k]);*/
 }
 void indexing(t_stack *stack)
 {
@@ -61,7 +62,7 @@ void indexing(t_stack *stack)
 		j = 0;
 		while (j < stack->size)
 		{
-			if (stack->indexed[i] == stack->pre_sorted[j])
+			if (stack->original_input[i] == stack->pre_sorted[j])
 			{
 				stack->indexed[i] = j;
 				break;
@@ -71,8 +72,8 @@ void indexing(t_stack *stack)
 		i++;
 	}
     // 打印输出部分
-    //for (i = 0; i < stack->size; i++) 
-        //printf("indexed[%d]: %d\n", i, stack->indexed[i]);
+   /* for (i = 0; i < stack->size; i++)
+        printf("indexed[%d]: %d", i, stack->indexed[i]);*/
 }
 
 void	initialize_stack(t_stack *stack, int argc, char **argv)
@@ -86,9 +87,12 @@ void	initialize_stack(t_stack *stack, int argc, char **argv)
 	else
 		stack->size = count_words(argv[1], ' ');
 
-	//printf("Size: %d\n", stack->size);
-    //for (int k = 0; k < stack->size; k++) 
-        //printf("Original input[%d]: %d\n", k, stack->original_input[k]);
+    pre_sort(stack);
+//    printf("Pre sort!!!!!");
+//    for (int k=0; k<stack->size; k++){
+//        printf("!!!!!!%d", stack->pre_sorted[k]);
+//    }
+	indexing(stack);
 }
 
 void	free_stack(t_stack *stack)

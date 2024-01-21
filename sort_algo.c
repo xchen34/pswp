@@ -141,7 +141,5 @@ void	insert_to_a(t_stack *stack)
 	rotate_command(stack, steps[0], steps[1]);
 	//printf("****rotate command result*****\nstep[0]=%d, step[1]=%d, total_steps=%d\n", steps[0], steps[1], steps[2]);
 	pa(stack, 1, 1);
-	//printf("****now indexed*****\n");
-	//for (int k=0; k<stack->size; k++)
-		//printf("%d ", stack->indexed[k]);
+
 }

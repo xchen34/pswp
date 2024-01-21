@@ -47,7 +47,6 @@ void	sort_small_3(t_stack *stack)
 void	sort_partition(t_stack *stack)
 {
 	int	i;
-	//int	k;
 
 	i = 0;
 	while (i < stack->size / 2)

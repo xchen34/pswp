@@ -67,5 +67,5 @@ void	rr(t_stack *stack, int exec, int print)
 		rb(stack, 1, 0);
 	}	
 	if (print == 1)
-		write(1, "rr\n", 4);
+		write(1, "rr\n", 3);
 }

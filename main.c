@@ -15,7 +15,6 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*stack;
-	//int	i;
 
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (argc == 1 || !stack)
@@ -35,8 +34,6 @@ int	main(int argc, char **argv)
 		else
 			sort_big(stack);
 	}
-	//for (i = 0; i < stack->size; i++)
-		//printf("final indexed[%d]: %d\n", i, stack->indexed[i]);
 	free_stack(stack);
 	return (0);
 }

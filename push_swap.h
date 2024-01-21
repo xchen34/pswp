@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 16:40:05 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/18 19:21:08 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/21 17:25:22 by czha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,7 @@ int	check_a_sorted(t_stack *stack);
 void	free_tmp(char **tmp);
 char	**ft_split(char *s, char c);
 int	count_words(char *s, char c);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
 
 #endif

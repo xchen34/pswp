@@ -44,14 +44,19 @@ int	check_sorted(t_stack *stack)
 	int	i;
 
 	i = 0;
-	while (i < stack->size - 1)
+	if (stack->atop == 0)
 	{
-		if (stack->original_input[i] < stack->original_input[i + 1])
-			i++;
-		else
-			return (0);
-	}
-	return (1);
+        while (i < stack->size - 1)
+        {
+//            if (stack->original_input[i] < stack->original_input[i + 1])
+            if (stack->original_input[i] < stack->original_input[i + 1])
+                i++;
+            else
+                return (0);
+        }
+        return (1);
+    }
+    return (0);
 }
 
 int	check_a_sorted(t_stack *stack)
