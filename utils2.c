@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:33:20 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/17 19:05:23 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/22 13:50:03 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error_print(void)
 {
-	write(1, "Error\n", 6);
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
 

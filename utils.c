@@ -6,11 +6,18 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:51:02 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/18 12:55:49 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/22 16:16:48 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	arg_ok(char *s)
+{
+	if ((s[0] == '+' && s[1] == '\0')|| (s[0] == '-' && s[1] == '\0') || s[0] == '\0' || (s[0] == ' ' && s[1] == '\0'))
+		return (0);
+	return (1);
+}
 
 int	atoi2(const char *s)
 {
@@ -87,3 +94,4 @@ int	*args_to_array(int argc, char **argv)
 	}
 	return (arry);
 }
+

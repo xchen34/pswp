@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 21:14:33 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/18 17:44:52 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/22 17:01:24 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,6 @@ void	free_stack(t_stack *stack)
 {
 	free(stack->indexed);
 	free(stack->original_input);
-	free(stack->pre_sorted);
+	free(stack->pre_sorted);;
 	free(stack);
 }

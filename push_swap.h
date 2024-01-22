@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 16:40:05 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/21 17:25:22 by czha             ###   ########.fr       */
+/*   Updated: 2024/01/22 14:29:29 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ char	**ft_split(char *s, char c);
 int	count_words(char *s, char c);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
+int	arg_ok(char *s);
 
 #endif
