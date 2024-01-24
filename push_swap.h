@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 16:40:05 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/22 14:29:29 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/24 00:17:06 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
-//# include "libft/libft.h"
+# include "get_next_line.h"
 
-typedef struct	s_stack
+typedef struct s_stack
 {
 	int	*indexed;
 	int	*original_input;
 	int	*pre_sorted;
 	int	atop;
 	int	size;
-}				t_stack;
+}		t_stack;
 
 /***************Init stack*************************/
-int	*put_to_array(int argc, char **argv);
+int		*put_to_array(int argc, char **argv);
 void	pre_sort(t_stack *stack);
 void	indexing(t_stack *stack);
 void	initialize_stack(t_stack *stack, int argc, char **argv);
@@ -48,9 +48,9 @@ void	sb(t_stack *stack, int exec, int print);
 void	ss(t_stack *stack, int exec, int print);
 
 /******************sort algo************************/
-int	find_insert_index(t_stack *stack, int index_b);
+int		find_insert_index(t_stack *stack, int index_b);
 void	calc_steps(t_stack *stack, int *steps, int index_a, int index_b);
-int	calc_total(int	a, int b);
+int		calc_total(int a, int b);
 void	rotate_command(t_stack *stack, int a, int b);
 void	rotate_command_single(t_stack *stack, int a, int b);
 void	insert_to_a(t_stack *stack);
@@ -62,19 +62,19 @@ void	move_to_top(t_stack *stack, int n);
 void	sort_big(t_stack *stack);
 
 /*********************utils*************************/
-int	atoi2(const char *s);
-int	abs(int	n);
-int	*str_to_array(char *s);
-int	*args_to_array(int argc, char **argv);
+int		atoi2(const char *s);
+int		abs(int n);
+int		*str_to_array(char *s);
+int		*args_to_array(int argc, char **argv);
 void	error_print(void);
-int	check_dup(t_stack *stack);
-int	check_sorted(t_stack *stack);
-int	check_a_sorted(t_stack *stack);
+int		check_dup(t_stack *stack);
+int		check_sorted(t_stack *stack);
+int		check_a_sorted(t_stack *stack);
 void	free_tmp(char **tmp);
 char	**ft_split(char *s, char c);
-int	count_words(char *s, char c);
+int		count_words(char *s, char c);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
-int	arg_ok(char *s);
+int		arg_ok(char *s);
 
 #endif

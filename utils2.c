@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:33:20 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/22 13:50:03 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/23 22:35:51 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,16 @@ int	check_sorted(t_stack *stack)
 	i = 0;
 	if (stack->atop == 0)
 	{
-        while (i < stack->size - 1)
-        {
-//            if (stack->original_input[i] < stack->original_input[i + 1])
-            if (stack->original_input[i] < stack->original_input[i + 1])
-                i++;
-            else
-                return (0);
-        }
-        return (1);
-    }
-    return (0);
+		while (i < stack->size - 1)
+		{
+			if (stack->indexed[i] < stack->indexed[i + 1])
+				i++;
+			else
+				return (0);
+		}
+		return (1);
+	}
+	return (0);
 }
 
 int	check_a_sorted(t_stack *stack)
@@ -69,10 +68,11 @@ int	check_a_sorted(t_stack *stack)
 		if (stack->indexed[i] < stack->indexed[i + 1])
 			i++;
 		else
-			return (0);	
+			return (0);
 	}
 	return (1);
 }
+
 void	free_tmp(char **tmp)
 {
 	int	i;
