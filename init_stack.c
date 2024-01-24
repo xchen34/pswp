@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 21:14:33 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/22 17:01:24 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/24 00:08:09 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	pre_sort(t_stack *stack)
 	while (count > 0)
 	{
 		i = 0;
-//		while (i < stack->size - 1)
 		while (i < count)
 		{
 			if (stack->pre_sorted[i] > stack->pre_sorted[i + 1])
@@ -42,17 +41,15 @@ void	pre_sort(t_stack *stack)
 				stack->pre_sorted[i] = stack->pre_sorted[i + 1];
 				stack->pre_sorted[i + 1] = tmp;
 			}
-		    i++;
+			i++;
 		}
 		count--;
 	}
-	/*int k;
-for (k=0;k<stack->size; k++)
-    printf("pre sorted[%d]:%d", k, stack->pre_sorted[k]);*/
 }
-void indexing(t_stack *stack)
+
+void	indexing(t_stack *stack)
 {
-    int i;
+	int	i;
 	int	j;
 
 	i = 0;
@@ -65,15 +62,12 @@ void indexing(t_stack *stack)
 			if (stack->original_input[i] == stack->pre_sorted[j])
 			{
 				stack->indexed[i] = j;
-				break;
+				break ;
 			}
 			j++;
 		}
 		i++;
 	}
-    // 打印输出部分
-   /* for (i = 0; i < stack->size; i++)
-        printf("indexed[%d]: %d", i, stack->indexed[i]);*/
 }
 
 void	initialize_stack(t_stack *stack, int argc, char **argv)
@@ -86,12 +80,7 @@ void	initialize_stack(t_stack *stack, int argc, char **argv)
 		stack->size = argc - 1;
 	else
 		stack->size = count_words(argv[1], ' ');
-
-    pre_sort(stack);
-//    printf("Pre sort!!!!!");
-//    for (int k=0; k<stack->size; k++){
-//        printf("!!!!!!%d", stack->pre_sorted[k]);
-//    }
+	pre_sort(stack);
 	indexing(stack);
 }
 
@@ -99,6 +88,6 @@ void	free_stack(t_stack *stack)
 {
 	free(stack->indexed);
 	free(stack->original_input);
-	free(stack->pre_sorted);;
+	free(stack->pre_sorted);
 	free(stack);
 }

@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 22:37:43 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/23 22:38:42 by leochen          ###   ########.fr       */
+/*   Created: 2024/01/23 00:09:19 by leochen           #+#    #+#             */
+/*   Updated: 2024/01/24 00:22:27 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	write(fd, &c, 1);
-}
+	size_t	i;
 
-void	ft_putstr_fd(char *s, int fd)
-{
-	if (!s)
-		return ;
-	while (*s)
+	i = 0;
+	if (n == 0)
+		return (0);
+	while ((s1[i] || s2[i]) && i < n)
 	{
-		ft_putchar_fd(*s, fd);
-		s++;
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
 	}
+	return (0);
 }

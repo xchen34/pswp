@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:51:02 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/22 16:16:48 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/24 00:26:16 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	arg_ok(char *s)
 {
-	if ((s[0] == '+' && s[1] == '\0')|| (s[0] == '-' && s[1] == '\0') || s[0] == '\0' || (s[0] == ' ' && s[1] == '\0'))
+	if ((s[0] == '+' && s[1] == '\0') || (s[0] == '-' && s[1] == '\0')
+		|| (s[0] == '\0') || (s[0] == ' ' && s[1] == '\0'))
 		return (0);
 	return (1);
 }
@@ -22,12 +23,11 @@ int	arg_ok(char *s)
 int	atoi2(const char *s)
 {
 	long long int	nb;
-	int	sign;
+	int				sign;
 
 	sign = 1;
 	nb = 0;
-	while(*s == '\t' || *s == '\n' || *s == '\v'
-		|| *s == '\f' || *s == '\r' || *s == ' ')
+	while ((*s >= 9 && *s <= 13) || *s == 32)
 		s++;
 	if (*s == '-')
 	{
@@ -42,24 +42,26 @@ int	atoi2(const char *s)
 			error_print();
 		nb = nb * 10 + (*s - '0');
 		s++;
-	if ((sign == 1 && nb * sign > 2147483647) || (sign == -1 &&nb * sign < -2147483648))
-		error_print();
-	}	
+		if ((sign == 1 && nb * sign > 2147483647)
+			|| (sign == -1 && nb * sign < -2147483648))
+			error_print();
+	}
 	return (nb * sign);
 }
 
-int	abs(int	n)
+int	abs(int n)
 {
 	if (n < 0)
 		return (-n);
 	return (n);
 }
+
 int	*str_to_array(char *s)
 {
-	int	*arry;
-	int	i;
-	int	count;
-	char	**tmp;
+	int			i;
+	int			count;
+	int			*arry;
+	char		**tmp;
 
 	tmp = ft_split(s, ' ');
 	count = 0;
@@ -94,4 +96,3 @@ int	*args_to_array(int argc, char **argv)
 	}
 	return (arry);
 }
-
