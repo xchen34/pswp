@@ -6,39 +6,22 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:51:02 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/26 12:59:54 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/26 16:53:36 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_numeric(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	if (!str[i])
-		return (0);
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		i++;
-	}	
-	return (1);
-}
 int	check_args(int argc, char **argv)
 {	
 	int	i;
 
 	i = 1;
-	if argc == 2
-	{
-		
-	}
-	if (argc > 2)
+	if (argc == 1)
+		exit(1);
+	else if (argc == 2)
+		return (1);
+	else if (argc > 2)
 	{
 		while (i < argc)
 		{
@@ -51,13 +34,6 @@ int	check_args(int argc, char **argv)
 		return (1);
 	return (0);
 }
-/*int	arg_ok(char *s)
-{
-	if ((s[0] == '+' && s[1] == '\0') || (s[0] == '-' && s[1] == '\0')
-		|| (s[0] == ' ' && s[1] == '\0'))
-		return (0);
-	return (1);
-}*/
 
 int	atoi2(const char *s)
 {
@@ -103,6 +79,8 @@ int	*str_to_array(char *s)
 	char		**tmp;
 
 	tmp = ft_split(s, ' ');
+	if (tmp == NULL)
+		error_print();
 	count = 0;
 	i = 0;
 	while (tmp[count] != NULL)
@@ -112,6 +90,8 @@ int	*str_to_array(char *s)
 		return (NULL);
 	while (i < count)
 	{
+		if (check_numeric(tmp[i]) == 0)
+			error_print();
 		arry[i] = atoi2(tmp[i]);
 		i++;
 	}
