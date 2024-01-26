@@ -6,19 +6,58 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:51:02 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/24 00:26:16 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/26 12:59:54 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	arg_ok(char *s)
+int	check_numeric(char *str)
 {
-	if ((s[0] == '+' && s[1] == '\0') || (s[0] == '-' && s[1] == '\0')
-		|| (s[0] == '\0') || (s[0] == ' ' && s[1] == '\0'))
+	int	i;
+
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!str[i])
 		return (0);
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
+	}	
 	return (1);
 }
+int	check_args(int argc, char **argv)
+{	
+	int	i;
+
+	i = 1;
+	if argc == 2
+	{
+		
+	}
+	if (argc > 2)
+	{
+		while (i < argc)
+		{
+			if (check_numeric(argv[i]) == 0)
+				error_print();
+			i++;
+		}
+	}
+	if (i > 1)
+		return (1);
+	return (0);
+}
+/*int	arg_ok(char *s)
+{
+	if ((s[0] == '+' && s[1] == '\0') || (s[0] == '-' && s[1] == '\0')
+		|| (s[0] == ' ' && s[1] == '\0'))
+		return (0);
+	return (1);
+}*/
 
 int	atoi2(const char *s)
 {
