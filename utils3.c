@@ -6,28 +6,23 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 01:09:32 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/26 16:52:36 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/27 23:43:08 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_numeric(char *str)
+int	check_numeric(char *s)
 {
-	int	i;
-
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	if (!str[i])
+	if (*s == '-' || *s == '+')
+		s++;
+	if (!*s)
 		return (0);
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		i++;
-	}	
-	return (1);
+	while (*s && (*s >= '0' && *s <= '9'))
+		s++;
+	if (!*s)
+		return (1);
+	return (0);
 }
 
 void	free_and_errorprint(t_stack *stack)

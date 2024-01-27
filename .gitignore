@@ -1,0 +1,13 @@
+checker
+checker pro
+checker_linux
+checker_Mac
+push_swap_test.sh
+push_swap_test_linux.sh
+traces.txt
+*.o
+push_swap_visualizer/
+0.txt
+push_swap
+Push-Swap-Tester/
+

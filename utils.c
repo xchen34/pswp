@@ -6,14 +6,14 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:51:02 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/26 16:53:36 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/27 23:36:07 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 int	check_args(int argc, char **argv)
-{	
+{
 	int	i;
 
 	i = 1;
@@ -25,14 +25,12 @@ int	check_args(int argc, char **argv)
 	{
 		while (i < argc)
 		{
-			if (check_numeric(argv[i]) == 0)
+			if (check_numeric(argv[i]) != 1)
 				error_print();
 			i++;
 		}
 	}
-	if (i > 1)
-		return (1);
-	return (0);
+	return (1);
 }
 
 int	atoi2(const char *s)

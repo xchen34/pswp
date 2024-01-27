@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:32:47 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/26 16:49:24 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/27 14:51:01 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,6 @@ int	main(int argc, char **argv)
 	initialize_stack(stack, argc, argv);
 	if (check_dup(stack) == 1)
 		free_stack_and_errorprint(stack);
-	if (check_sorted(stack) == 1)
-	{
-		write(1, "OK\n", 3);
-		free_stack_and_exit(stack);
-	}
 	process_op(stack);
 	if (check_sorted(stack) == 1)
 		write(1, "OK\n", 3);

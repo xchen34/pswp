@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 14:13:15 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/26 15:49:11 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/27 13:33:06 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack;
 
-	if (check_args(argc, argv) == 0)
+	if (check_args(argc, argv) != 1)
 		return (1);
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)

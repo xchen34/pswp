@@ -6,7 +6,7 @@
 #    By: leochen <leochen@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 15:40:06 by leochen           #+#    #+#              #
-#    Updated: 2024/01/26 17:01:39 by leochen          ###   ########.fr        #
+#    Updated: 2024/01/27 23:06:40 by leochen          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror -g
 	
 all: $(NAME)
 
