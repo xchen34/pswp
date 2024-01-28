@@ -6,18 +6,18 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 21:14:33 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/24 00:08:09 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/28 20:58:20 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*put_to_array(int argc, char **argv)
+int	*put_to_array(int argc, char **argv, t_stack *stack)
 {
 	if (argc == 2)
-		return (str_to_array(argv[1]));
+		return (str_to_array(argv[1], stack));
 	else if (argc > 2)
-		return (args_to_array(argc, argv));
+		return (args_to_array(argc, argv, stack));
 	else
 		return (NULL);
 }
@@ -72,16 +72,14 @@ void	indexing(t_stack *stack)
 
 void	initialize_stack(t_stack *stack, int argc, char **argv)
 {
-	stack->original_input = put_to_array(argc, argv);
-	stack->pre_sorted = put_to_array(argc, argv);
-	stack->indexed = put_to_array(argc, argv);
+	stack->original_input = put_to_array(argc, argv, stack);
+	stack->pre_sorted = put_to_array(argc, argv, stack);
+	stack->indexed = put_to_array(argc, argv, stack);
 	stack->atop = 0;
 	if (argc > 2)
 		stack->size = argc - 1;
 	else
 		stack->size = count_words(argv[1], ' ');
-	pre_sort(stack);
-	indexing(stack);
 }
 
 void	free_stack(t_stack *stack)

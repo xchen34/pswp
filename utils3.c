@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 01:09:32 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/27 23:43:08 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/28 21:44:51 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,9 @@ void	free_stack_and_exit(t_stack *stack)
 	exit(1);
 }
 
-int	check_all_space(char *s)
+void	free_arry(char **tmp, int *arry, t_stack *stack)
 {
-	while (*s)
-	{
-		if (*s == '\t' || *s == '\n' || *s == '\v'
-			|| *s == '\f' || *s == '\r' || *s == ' ')
-			s++;
-		else
-			return (0);
-	}
-	return (1);
+	free_tmp(tmp);
+	free(arry);
+	free_stack_and_errorprint(stack);
 }

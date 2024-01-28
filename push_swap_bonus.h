@@ -25,7 +25,6 @@ int		handle_r(t_stack *stack, char *line);
 int		handle_rr(t_stack *stack, char *line);
 int		match_op(t_stack *stack, char *line);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*get_next_line(int fd);
 
 /*****************get next line*/
 # ifndef BUFFER_SIZE

@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:06:13 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/23 21:05:01 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/28 21:14:50 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,11 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*stock;
 
+	if (fd == -42)
+	{
+		free(stock);
+		return (NULL);
+	}
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	stock = read_and_add(fd, stock);

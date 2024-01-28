@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 16:40:05 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/26 16:50:00 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/28 21:45:11 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdbool.h>
 
 typedef struct s_stack
 {
@@ -27,7 +28,7 @@ typedef struct s_stack
 }		t_stack;
 
 /***************Init stack*************************/
-int		*put_to_array(int argc, char **argv);
+int		*put_to_array(int argc, char **argv, t_stack *stack);
 void	pre_sort(t_stack *stack);
 void	indexing(t_stack *stack);
 void	initialize_stack(t_stack *stack, int argc, char **argv);
@@ -61,10 +62,10 @@ void	move_to_top(t_stack *stack, int n);
 void	sort_big(t_stack *stack);
 
 /*********************utils*************************/
-int		atoi2(const char *s);
+bool	atoi2(const char *s, long long *nb);
 int		abs(int n);
-int		*str_to_array(char *s);
-int		*args_to_array(int argc, char **argv);
+int		*str_to_array(char *s, t_stack *stack);
+int		*args_to_array(int argc, char **argv, t_stack *stack);
 void	error_print(void);
 int		check_dup(t_stack *stack);
 int		check_sorted(t_stack *stack);
@@ -74,12 +75,12 @@ char	**ft_split(char *s, char c);
 int		count_words(char *s, char c);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
-//int		arg_ok(char *s);
 int		check_numeric(char *str);
 int		check_args(int argc, char **argv);
 void	free_and_errorprint(t_stack *stack);
 void	free_stack_and_errorprint(t_stack *stack);
 void	free_stack_and_exit(t_stack *stack);
 int		check_all_space(char *s);
+void	free_arry(char **tmp, int *arry, t_stack *stack);
 
 #endif

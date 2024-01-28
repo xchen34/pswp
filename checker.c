@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:32:47 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/27 14:51:01 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/28 21:20:30 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	process_op(t_stack *stack)
 	{
 		if (match_op(stack, line) == 0)
 		{
+			(void)get_next_line(-42);
 			ft_putstr_fd("Error\n", 2);
 			free(line);
 			free_stack(stack);
@@ -41,7 +42,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (argv[1][0] == '\0' || check_all_space(argv[1]) == 1)
 		error_print();
-	stack = (t_stack *)malloc(sizeof(t_stack));
+	stack = (t_stack *)calloc(1, sizeof(t_stack));
 	if (!stack)
 		error_print();
 	initialize_stack(stack, argc, argv);
