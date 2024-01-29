@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:51:02 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/28 21:38:34 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/29 01:19:51 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,9 @@ bool	atoi2(const char *s, long long *nb)
 	*nb = 0;
 	while ((*s >= 9 && *s <= 13) || *s == 32)
 		s++;
-	if (*s == '-')
-	{
-		sign = -1;
-		s++;
-	}
-	else if (*s == '+')
-		s++;
+	sign = get_sign(&s);
+	if (!(*s >= '0' && *s <= '9'))
+		return (false);
 	while (*s)
 	{
 		if (!(*s >= '0' && *s <= '9'))

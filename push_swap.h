@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 16:40:05 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/28 21:45:11 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/29 01:22:43 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include <stdint.h>
 
 typedef struct s_stack
 {
@@ -82,5 +83,8 @@ void	free_stack_and_errorprint(t_stack *stack);
 void	free_stack_and_exit(t_stack *stack);
 int		check_all_space(char *s);
 void	free_arry(char **tmp, int *arry, t_stack *stack);
+void	*ft_calloc(size_t nmemb, size_t size);
+void	*ft_memset(void *s, int c, size_t n);
+int		get_sign(const char **s);
 
 #endif

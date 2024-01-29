@@ -6,7 +6,7 @@
 /*   By: leochen <leochen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 14:13:15 by leochen           #+#    #+#             */
-/*   Updated: 2024/01/28 20:51:04 by leochen          ###   ########.fr       */
+/*   Updated: 2024/01/29 00:13:44 by leochen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	if (check_args(argc, argv) != 1)
 		return (1);
-	stack = (t_stack *)calloc(1, sizeof(t_stack));
+	stack = (t_stack *)ft_calloc(1, sizeof(t_stack));
 	if (!stack)
 		return (1);
 	if (argv[1][0] == '\0' || check_all_space(argv[1]) == 1)
