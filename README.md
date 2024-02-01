@@ -5,3 +5,5 @@
 * valgrind --leak-check=full --show-leak-kinds=all ./push_swap "54545454545456456454564"
 
 * another tester: https://github.com/SimonCROS/push_swap_tester  
+
+* ARG=$(seq 1 1 500 | shuf | tr '\n' ' '); ./push_swap $ARG | wc -l
